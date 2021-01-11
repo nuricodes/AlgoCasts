@@ -1,37 +1,61 @@
 // --- Directions
-// Given an array and chunk size, divide the array into many subarrays
-// where each subarray is of length size
-// --- Examples
-// chunk([1, 2, 3, 4], 2) --> [[ 1, 2], [3, 4]]
-// chunk([1, 2, 3, 4, 5], 2) --> [[ 1, 2], [3, 4], [5]]
-// chunk([1, 2, 3, 4, 5, 6, 7, 8], 3) --> [[ 1, 2, 3], [4, 5, 6], [7, 8]]
-// chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]
-// chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
+// Given a string, return true if the string is a palindrome
+// or false if it is not.  Palindromes are strings that
+// form the same word if it is reversed. *Do* include spaces
+// and punctuation in determining if the string is a palindrome.
+// --- Examples:
+//   palindrome("abba") === true
+//   palindrome("abcdefg") === false
 
-// --- Directions
-// Given a string, return the character that is most
-// commonly used in the string.
-// --- Examples
-// maxChar("abcccccccd") === "c"
-// maxChar("apple 1231111") === "1"
-
-function maxChar(str) {
-    let charObj = {}
-    let max = 0;
-    let maxChar = ''
-    //loop through string and put in object with char repetition count
-    for (let char of str) {
-        charObj[char] ? charObj[char]++ : charObj[char] = 1 //in the character we're iterating over is in the object then add one if it is not then make it 1
-    }
-    for (let char in charObj) {
-        if (charObj[char] > max) {
-            max = charObj[char]
-            maxChar = char
-        }
-        return maxChar
-    }
+function palindrome(str) {
+    return str === str.split('').reduce((reversed, character) => character + reversed, '');
 
 }
 
 
-module.exports = maxChar;
+module.exports = palindrome;
+
+///////////////////////////////////////
+// SOLUTION 1
+///////////////////////////////////////
+
+// function palindrome(str) {
+//     let reversed = str.split('').reverse().join('')
+
+// }
+
+///////////////////////////////////////
+// SOLUTION 2
+///////////////////////////////////////
+
+// function palindrome(str) {
+//     let reversed = ''
+//     
+//     for (character of str) {
+//         reversed = character + reversed;
+//     }
+//     return str === reversed
+
+// }
+
+///////////////////////////////////////
+// SOLUTION 3
+///////////////////////////////////////
+
+// function palindrome(str) {
+//     return str === str.split('').reduce((reversed, character) => character + reversed, '');
+
+// }
+
+///////////////////////////////////////
+// SOLUTION 4
+///////////////////////////////////////
+
+// function palindrome(str) {
+//     return str.split('').every((character, i) => {
+//         //compares the character to the length of string arr -1 bc of 0 index
+//         //ie compares the first and last character to see if they are the same
+//         return character === str[str.length - i - 1]
+//     })
+
+// }
