@@ -31,3 +31,26 @@ function buildCharMap(string, charMap) {
 
 module.exports = anagrams;
 
+// Solution 2
+// function anagrams(stringA, stringB) {
+//     stringA = stringA.replace(/[^\w]/g, "").toLowerCase();
+//     stringB = stringB.replace(/[^\w]/g, "").toLowerCase();
+//     let charMapA = {}
+//     let charMapB = {}
+//     stringA.split('').map(c => charMapA[c] ? charMapA[c]++ : charMapA[c] = 1)
+//     stringB.split('').map(c => charMapB[c] ? charMapB[c]++ : charMapB[c] = 1)
+
+//     if (Object.keys(charMapA).length !== Object.keys(charMapB).length) {
+//         return false;
+//     }
+
+//     for (let char in charMapA) {
+//         if (charMapA[char] !== charMapB[char]) {
+//             return false;
+//         }
+//     }
+//     return true
+// }
+
+
+// Solution 3
