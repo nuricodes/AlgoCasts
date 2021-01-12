@@ -10,23 +10,11 @@
 
 // Solution 1
 function anagrams(stringA, stringB) {
-    let charMapA = {}
-    let charMapB = {}
-    stringA = buildCharMap(stringA, charMapA)
-    stringB = buildCharMap(stringB, charMapB)
-
-    if (Object.keys(charMapA).length !== Object.keys(charMapB).length) {
-        return false;
-    } for (let char in charMapA) {
-        if (charMapA[char] !== charMapB[char]) {
-            return false;
-        }
-    }
-    return true
+    return cleanString(stringA) === cleanString(stringB)
 }
-function buildCharMap(string, charMap) {
-    string = string.replace(/[^\w]/g, "").toLowerCase()
-    string.split("").map(c => charMap[c] ? charMap[c]++ : charMap[c] = 1)
+
+function cleanString(str) {
+    return str = str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
 }
 
 module.exports = anagrams;
@@ -54,3 +42,22 @@ module.exports = anagrams;
 
 
 // Solution 3
+// function anagrams(stringA, stringB) {
+//     let charMapA = {}
+//     let charMapB = {}
+//     stringA = buildCharMap(stringA, charMapA)
+//     stringB = buildCharMap(stringB, charMapB)
+
+//     if (Object.keys(charMapA).length !== Object.keys(charMapB).length) {
+//         return false;
+//     } for (let char in charMapA) {
+//         if (charMapA[char] !== charMapB[char]) {
+//             return false;
+//         }
+//     }
+//     return true
+// }
+// function buildCharMap(string, charMap) {
+//     string = string.replace(/[^\w]/g, "").toLowerCase()
+//     string.split("").map(c => charMap[c] ? charMap[c]++ : charMap[c] = 1)
+// }
