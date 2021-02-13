@@ -25,3 +25,22 @@ function maxChar(str) {
 
 
 module.exports = maxChar;
+
+// const twoSum = (arr, target) => {
+//     let left = 0;
+//     let right = arr.length - 1;
+//     while (left < right) {
+//         let cum = arr[left] + arr[right];
+//         if (cum < target) {
+//             left++
+//         } else if (cum > target) {
+//             right--
+//         } else {
+//             return [left, right]
+//         }
+//     }
+//     return [-1, -1]
+
+// }
+
+// twoSum([-1, 1, 2, 3, 5], 5)
